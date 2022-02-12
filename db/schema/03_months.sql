@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS months CASCADE;
+CREATE TABLE months (
+  id SERIAL PRIMARY KEY NOT NULL,
+  year DATE,
+  month DATE
+);
