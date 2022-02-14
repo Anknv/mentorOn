@@ -1,7 +1,7 @@
 /*
- * All routes for menterListings are defined here
- * Since this file is loaded in server.js into api/menterListings,
- *   these routes are mounted onto /menterListings
+ * All routes for mentorListings are defined here
+ * Since this file is loaded in server.js into api/mentorListings,
+ *   these routes are mounted onto /mentorListings
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
