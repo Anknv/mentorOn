@@ -6,11 +6,14 @@
  */
 
 const express = require('express');
+const { getUserFromSession } = require('../src/getUserFromSession');
 const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/mentor-card", (req, res) => {
-    getMentorCard(db);
+    const monthId = req.query.month_id;
+    const user = getUserFromSession(req.session);
+    getMentorCard(db, monthId, user.user_id).then;
   });
   return router;
 };

@@ -1,27 +1,16 @@
+import React from "react";
 import './App.css';
-import axios from 'axios';
-import {useState, useEffect} from 'react';
+import useApplicationData from "./hooks/useApplicationData";
 
-function App() {
+export default function App(props) {
 
-  const [users,setUsers] = useState([]);
+  const {
+    state
+  } = useApplicationData();
 
-  useEffect(() => {
+  console.log(state);
 
-    axios({
-      method: 'GET',
-      url: '/api/users'
-    })
-    .then (result => {
-        console.log(result.data);
-        setUsers(result.data.users);
-
-    })
-    .catch (err => console.log("Error: Error Message",err));
-
-  },[]);
-  console.log("typeof",typeof users);
-   const userList = users && users.map(user => <li key={user.id}>{user.name} {user.email} </li>);
+   const userList = state.mentorlist && state.mentorlist.map(user => <li key={user.id}>{user.name} </li>);
   return (
     <div className="App">
       <ul>
@@ -29,6 +18,4 @@ function App() {
       </ul>
     </div>
   );
-}
-
-export default App;
+};
