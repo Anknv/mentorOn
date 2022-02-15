@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
 import axios from "axios";
+import Navbar from "./components/Navbar/Navbar";
 
 export default function App(props) {
-
 
   const {
     state
@@ -40,6 +40,8 @@ export default function App(props) {
   {user.description}</li>);
   return (
     <div className="App">
+      <Navbar />
+      
       <ul>
         {userList}
       </ul>
