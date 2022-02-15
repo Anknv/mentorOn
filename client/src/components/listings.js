@@ -44,6 +44,6 @@ function TweetList(){
 
     </section>
   );
-}
+};
 
 export default TweetList;
