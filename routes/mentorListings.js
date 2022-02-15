@@ -10,8 +10,9 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    console.log("Getting MentorList Details");
     let query = `SELECT A.user_id,
-                        A.name,
+                        B.name,
                         A.description,
                         A.speciality,
                         A.location,
