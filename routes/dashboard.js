@@ -6,14 +6,28 @@
  */
 
 const express = require('express');
+const { getMenteeCalls } = require('../src/dbQueries/getMenteeCalls');
+const { getMentorCard } = require('../src/dbQueries/getMentorCard');
 const { getUserFromSession } = require('../src/getUserFromSession');
 const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/mentor-card", (req, res) => {
     const monthId = req.query.month_id;
-    const user = getUserFromSession(req.session);
-    getMentorCard(db, monthId, user.user_id).then;
+    //const user = getUserFromSession(req.session);
+    getMentorCard(db, monthId, '1').then((mentor) => {
+      res.send(mentor);
+    });
   });
+
+  router.get("/mentee-calls", (req, res) => {
+    const monthId = req.query.month_id;
+    //const user = getUserFromSession(req.session);
+    getMenteeCalls(db, monthId, '1').then((calls) => {
+      res.send(calls);
+    });
+  });
+
+
   return router;
 };

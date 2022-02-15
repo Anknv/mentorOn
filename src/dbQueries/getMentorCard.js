@@ -1,6 +1,11 @@
-const getMentorCard = (db, monthId, userId) => {
+exports.getMentorCard = (db, monthId, userId) => {
   const queryString = `
-    SELECT * FROM mentors
+    SELECT
+      name,
+      email,
+      image_url,
+      mentors.*
+    FROM mentors
     JOIN users ON users.id = mentors.user_id
     WHERE mentors.id = (
       SELECT mentor_id FROM sessions
@@ -8,5 +13,7 @@ const getMentorCard = (db, monthId, userId) => {
     )
   `;
 
-  return db.query(queryString, [monthId, userId]).then((res) => res.rows[0]);
+  return db.query(queryString, [monthId, userId]).then((res) => {
+    return res.rows[0];
+  });
 }
