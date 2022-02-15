@@ -9,7 +9,9 @@ const express = require('express');
 const { createMenteeCalls } = require('../src/dbQueries/createMenteeCalls');
 const { deleteMenteeCalls } = require('../src/dbQueries/deleteMenteeCall');
 const { getMenteeCalls } = require('../src/dbQueries/getMenteeCalls');
+const { getMenteeGoals } = require('../src/dbQueries/getMenteeGoals');
 const { getMentorCard } = require('../src/dbQueries/getMentorCard');
+const { markGoalDOne } = require('../src/dbQueries/markGoalDone');
 const { getUserFromSession } = require('../src/getUserFromSession');
 const router  = express.Router();
 
@@ -46,6 +48,21 @@ module.exports = (db) => {
     });
   });
 
+  router.get("/mentee-goals", (req, res) => {
+    const goalId = req.query.goal_id;
+    //const user = getUserFromSession(req.session);
+    getMenteeGoals(db, goalId, '1').then((goals) => {
+      res.send(goals);
+    });
+  });
+
+  router.post("/mentee-goal-done", (req, res) => {
+    const goalId = req.body.goal_id;
+    //const user = getUserFromSession(req.session);
+    markGoalDOne(db, goalId, '1').then((goals) => {
+      res.send(goals);
+    });
+  });
 
   return router;
 };
