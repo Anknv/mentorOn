@@ -10,27 +10,23 @@ export default function Mentors(props) {
     <article className="tweet">
         <header className="tweet--header">
           <img className="tweet--avatar" src={user.image_url}/>
-          <h2 className="tweet--name">{user.name}</h2>
-          <small className="tweet--handle">Email : {user.email}</small>
+          <div className="mentor--body">{user.description}</div>
         </header>
-
         <div className="tweet--body">
-          <p>{user.description}</p>
-        </div>
-        <div className="tweet--body">
-          <p>Location   : {user.location}</p>
-          <p>Language   : {user.language}</p>
+          <p>Name       : {user.name}</p>
+          <p>Email      : {user.email}</p>
           <p>Speciality : {user.speciality}</p>
+          <p>Language   : {user.language}</p>
+          <p>Location   : {user.location}</p>
 
-          <div className='book-menu'>
-        <ul>
+        </div>
+
+        <div className="book--body">
+          <h3>$100/ month</h3> <br/>
           <Link className='book-links' to="bookmentor">
             Book
           </Link>
-
-        </ul>
-      </div>
-  </div>
+        </div>
 
 
       </article>
