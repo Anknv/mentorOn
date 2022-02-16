@@ -10,12 +10,12 @@ export const Goals = function(props) {
 
   useEffect(() => {
     loadGoals();
-  }, [])
+  }, [props.monthId])
 
   function loadGoals() {
     axios.get('/api/dashboard/mentee-goals', {
       params: {
-        month_id: 1
+        month_id: props.monthId
       }
     })
     .then((response) => {
@@ -41,17 +41,16 @@ export const Goals = function(props) {
 
   }, 0) / goals.length * 100) || 0;
 
-  return <div>
-    goals...
-    <ul>
+  return <div className="goals">
+    <ul className="goals--list">
       {goals.map(goal => (
-        <li key={goal.id}>
+        <li className="goals--list-item" key={goal.id}>
           <input type='checkbox' onChange={(event) => markGoalDone(goal.id, event.target.checked)} checked={goal.is_done} /> {goal.description}
         </li>
       ))}
     </ul>
     <div className='goals--progress-circle'>
-      <CircularProgressbar value={percentage} text={`${percentage}%`} />;
+      <CircularProgressbar value={percentage} text={`${percentage}%`} />
     </div>
   </div>
 }

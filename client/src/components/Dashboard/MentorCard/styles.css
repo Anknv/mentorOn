@@ -1,0 +1,41 @@
+.mentor-card {
+  color: blue;
+  background-color: white;
+  border-radius: 16px;
+  display: inline-flex;
+  padding: 2rem 4rem;
+  padding-right: 15rem;
+  flex-direction: column;
+}
+
+.mentor-image {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.mentor-image > img {
+  margin-right: 2rem;
+}
+
+.mentor-card--mentor-image {
+  border-radius: 50%;
+  height: 8rem;
+}
+
+/*
+.mentor-card--mentor-speciality {
+
+}
+.mentor-card--mentor-name {
+
+}
+
+
+.mentor-card--mentor-location {
+
+}
+
+.mentor-card--mentor-language {
+
+} */

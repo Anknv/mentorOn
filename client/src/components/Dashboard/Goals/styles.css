@@ -1,4 +1,15 @@
+.goals {
+  display: flex;
+  justify-content: space-around;
+}
+
 .goals--progress-circle {
   height: 15rem;
   width: 15rem;
+}
+
+.goals--list-item {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
