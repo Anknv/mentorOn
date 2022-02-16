@@ -19,7 +19,6 @@
 
 body {
 	/*Custom font, loaded via Google */
-	font-family: "Source Sans Pro", sans-serif;
 	margin: 0;
 	color: #545149;
 	background-color: #f4f1ec;
@@ -57,7 +56,7 @@ aside {
 
 	.container {
 		width: 50%;
-		float: right;
+		
 		margin: 160px 60px;
 	}
 }

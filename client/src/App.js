@@ -1,40 +1,24 @@
-import React, { useEffect,Fragment } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   Routes, // instead of "Switch"
   Route,
   Switch
 } from "react-router-dom";
-
-
-// ...
-
-
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
-import axios from "axios";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
 import Mentors from "./components/Mentors/Mentors";
 import { Dashboard } from "./components/Dashboard";
 
 export default function App(props) {
 
+  const [user, setUser] = useState(null);
   const {
     state
   } = useApplicationData();
-
-   console.log("state",state);
-   console.log("MentorList",state.mentorlist);
-
-  const UserList = <ul>{state.mentorlist.mentorList && state.mentorlist.mentorList.map(user =>
-  <li key={user.user_id}>{user.name}
-  {user.speciality} { }
-  {user.location} { }
-  {user.language} { }
-  {user.email} { }
-  {user.image_url} {}
-  {user.description}</li>)}</ul>
   return (
     <div className="App">
       <BrowserRouter>
@@ -44,11 +28,11 @@ export default function App(props) {
           {/* <Fragment> */}
             <Switch>
                <Route exact="true" path="/" component={Home} />
-               <Route path="/mentors" component={Mentors} />
+               <Route path="/login" render={(props) => <Login {...props} user={user} setUser={setUser} />} />
+               <Route path="/mentors" render={props => <Mentors data={state} />} />
                <Route path="/dashboard" component={Dashboard} />
            </Switch>
          {/* </Fragment> */}
-
         </div>
       </BrowserRouter>
     </div>
