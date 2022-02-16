@@ -14,9 +14,11 @@ import Mentors from "./components/Mentors/Mentors";
 import Bookmentor from "./components/Mentors/Bookmentor";
 import { Dashboard } from "./components/Dashboard";
 
+
 export default function App(props) {
 
   const [user, setUser] = useState(null);
+  
   const {
     state
   } = useApplicationData();
@@ -25,14 +27,13 @@ export default function App(props) {
       <BrowserRouter>
        <Navbar />
          <div className="page-content">
-
           {/* <Fragment> */}
             <Switch>
                <Route exact="true" path="/" component={Home} />
                <Route path="/login" render={(props) => <Login {...props} user={user} setUser={setUser} />} />
                <Route path="/mentors" render={props => <Mentors data={state} />} />
-               <Route path="/bookmentor" component={Bookmentor} />
                <Route path="/dashboard" component={Dashboard} />
+               <Route path="/bookmentor" component={Bookmentor} />
            </Switch>
          {/* </Fragment> */}
         </div>

@@ -2,12 +2,13 @@
 require("dotenv").config();
 
 // Web server config
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require('body-parser');
+const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -33,6 +34,12 @@ app.use(
   })
 );
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['abc'],
+}))
+
+
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
@@ -40,12 +47,15 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const mentorListings = require("./routes/mentorListings");
 const dashboardRoutes = require("./routes/dashboard");
+const { getUserFromSession } = require("./src/getUserFromSession");
+const loginRoute = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/mentorListings", mentorListings(db));
 app.use("/api/dashboard", dashboardRoutes(db));
+app.use("/api/login", loginRoute(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
+// import { Redirect } from "react-router-dom";
+// import PropTypes from "prop-types";
 import axios from "axios";
 import "./Login.css";
 
@@ -13,14 +13,12 @@ function Login({ user, setUser, history }) {
   // console.log("loginpage user", user);
   useEffect(() => {
     if (user) {
-      history.replace('/mentors')
+      history.replace('/dashboard')
     }
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log('hello');
 
     const data = JSON.stringify({
       email,
@@ -30,24 +28,20 @@ function Login({ user, setUser, history }) {
       "Content-Type": "application/json",
     };
 
-    // axios
-    //   .post("/api/users/login", data, {
-    //     headers: headers,
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setUser(response.data);
-    //     setError("");
-    //     props.history.push('/mentors')
-    //   })
-    //   .catch((err) => {
-    //     console.log("Error : ", err);
-    //     setError("error");
-    //   });
-
-    setUser({email});
-    history.replace('/mentors')
-
+    axios
+      .post("/api/login", data, {
+        headers: headers,
+      })
+      .then((response) => {
+        console.log(response.data);
+        setUser(response.data);
+        setError("");
+        history.replace('/dashboard')
+      })
+      .catch((err) => {
+        console.log("Error : ", err);
+        setError("error");
+      });
   };
 
   const validateForm = () => {
