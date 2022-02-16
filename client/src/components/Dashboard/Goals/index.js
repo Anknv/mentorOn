@@ -1,5 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import './styles.css'
 
 export const Goals = function(props) {
 
@@ -30,6 +33,14 @@ export const Goals = function(props) {
     })
   }
 
+  const percentage = Math.round(goals.reduce((prev, current) => {
+    if (current.is_done) {
+      return prev + 1
+    }
+    return prev
+
+  }, 0) / goals.length * 100) || 0;
+
   return <div>
     goals...
     <ul>
@@ -39,5 +50,8 @@ export const Goals = function(props) {
         </li>
       ))}
     </ul>
+    <div className='goals--progress-circle'>
+      <CircularProgressbar value={percentage} text={`${percentage}%`} />;
+    </div>
   </div>
 }
