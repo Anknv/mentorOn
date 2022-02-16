@@ -1,5 +1,6 @@
 import React from "react";
 import './Mentor.css';
+import { Link } from 'react-router-dom';
 
 export default function Mentors(props) {
   console.log("Test",props.data);
@@ -20,10 +21,18 @@ export default function Mentors(props) {
           <p>Location   : {user.location}</p>
           <p>Language   : {user.language}</p>
           <p>Speciality : {user.speciality}</p>
-        </div>
 
-        <footer className="tweet--footer">
-        </footer>
+          <div className='book-menu'>
+        <ul>
+          <Link className='book-links' to="bookmentor">
+            Book
+          </Link>
+
+        </ul>
+      </div>
+  </div>
+
+
       </article>
   );
     // <li key={user.user_id}>{user.name}

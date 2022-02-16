@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Mentors from "./components/Mentors/Mentors";
+import Bookmentor from "./components/Mentors/Bookmentor";
 import { Dashboard } from "./components/Dashboard";
 
 export default function App(props) {
@@ -30,6 +31,7 @@ export default function App(props) {
                <Route exact="true" path="/" component={Home} />
                <Route path="/login" render={(props) => <Login {...props} user={user} setUser={setUser} />} />
                <Route path="/mentors" render={props => <Mentors data={state} />} />
+               <Route path="/bookmentor" component={Bookmentor} />
                <Route path="/dashboard" component={Dashboard} />
            </Switch>
          {/* </Fragment> */}
