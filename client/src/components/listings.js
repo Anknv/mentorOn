@@ -19,7 +19,8 @@ function TweetList(){
                 <a href="#"><i class="fa fa-retweet"></i></a>
                 <a href="#"><i class="fa fa-heart"></i></a>'
               </span>
-            </small></small></footer>
+            </small></small>
+        </footer>
       </article>
       <article class="tweet">
         <header class="tweet--header">
