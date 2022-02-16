@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS goals CASCADE;
 CREATE TABLE goals (
   id SERIAL PRIMARY KEY NOT NULL,
+  session_id INTEGER NOT NULL REFERENCES sessions(id),
   description TEXT,
   is_done BOOLEAN NOT NULL DEFAULT FALSE
 );

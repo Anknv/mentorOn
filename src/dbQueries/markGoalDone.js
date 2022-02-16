@@ -1,4 +1,4 @@
-exports.markGoalDOne = (db, isDone, goalId, userId, monthId) => {
+exports.markGoalDone = (db, isDone, goalId, userId, monthId) => {
   const queryString = `
     UPDATE goals
     SET is_done = $1

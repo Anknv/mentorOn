@@ -14,9 +14,9 @@ import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
 import axios from "axios";
 import Navbar from "./components/Navbar/Navbar";
-import TweetList from "./components/Listings";
 import Home from "./components/Home/Home";
 import Mentors from "./components/Mentors/Mentors";
+import { Dashboard } from "./components/Dashboard";
 
 export default function App(props) {
 
@@ -45,6 +45,7 @@ export default function App(props) {
             <Switch>
                <Route exact="true" path="/" component={Home} />
                <Route path="/mentors" component={Mentors} />
+               <Route path="/dashboard" component={Dashboard} />
            </Switch>
          {/* </Fragment> */}
 

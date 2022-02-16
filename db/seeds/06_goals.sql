@@ -1,2 +1,2 @@
-INSERT INTO goals (description,is_done) VALUES ('Update resume and Create a LinkedIn profile',False);
-INSERT INTO goals (description,is_done) VALUES ('Attend a networking Event on March',False);
+INSERT INTO goals (session_id,description,is_done) VALUES (1,'Update resume and Create a LinkedIn profile',True);
+INSERT INTO goals (session_id,description,is_done) VALUES (1,'Attend a networking Event on March',False);

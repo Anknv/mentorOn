@@ -11,7 +11,7 @@ const { deleteMenteeCalls } = require('../src/dbQueries/deleteMenteeCall');
 const { getMenteeCalls } = require('../src/dbQueries/getMenteeCalls');
 const { getMenteeGoals } = require('../src/dbQueries/getMenteeGoals');
 const { getMentorCard } = require('../src/dbQueries/getMentorCard');
-const { markGoalDOne } = require('../src/dbQueries/markGoalDone');
+const { markGoalDone } = require('../src/dbQueries/markGoalDone');
 const { getUserFromSession } = require('../src/getUserFromSession');
 const router  = express.Router();
 
@@ -49,17 +49,19 @@ module.exports = (db) => {
   });
 
   router.get("/mentee-goals", (req, res) => {
-    const goalId = req.query.goal_id;
+    const monthId = req.query.month_id;
     //const user = getUserFromSession(req.session);
-    getMenteeGoals(db, goalId, '1').then((goals) => {
-      res.send(goals);
+    getMenteeGoals(db, monthId, '1').then((goals) => {
+      res.send(goals.sort((a,b) => a.id - b.id));
     });
   });
 
   router.post("/mentee-goal-done", (req, res) => {
     const goalId = req.body.goal_id;
+    const monthId = req.body.month_id;
+    const isDone = req.body.is_done;
     //const user = getUserFromSession(req.session);
-    markGoalDOne(db, goalId, '1').then((goals) => {
+    markGoalDone(db, isDone, goalId, '1', monthId).then((goals) => {
       res.send(goals);
     });
   });
