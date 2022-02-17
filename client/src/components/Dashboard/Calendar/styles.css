@@ -1,0 +1,29 @@
+.calendar {
+  width: 100%;
+  margin: 0 3rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.calendar-day {
+  background-color: white;
+  display: inline-block;
+  text-align: center;
+  width: 14.2857%;
+  padding: 1rem;
+}
+
+.calendar-day:hover {
+  background-color: #d6d6d6;
+  cursor: pointer;
+}
+
+.calendar-week.header .calendar-day {
+  font-weight: bold;
+}
+
+.calendar-day.empty:hover,
+.calendar-week.header .calendar-day:hover {
+  background-color: white;
+}

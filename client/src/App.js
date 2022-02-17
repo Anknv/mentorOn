@@ -18,13 +18,13 @@ import { Dashboard } from "./components/Dashboard";
 export default function App(props) {
 
   const history = useHistory();
-  
-  let userExists; try {  
+
+  let userExists; try {
     userExists = JSON.parse(localStorage.getItem('user'))
   } catch(err){
     console.error(err);
   };
-    
+
   function logOut() {
     localStorage.clear()
     setUser(null)
@@ -32,7 +32,7 @@ export default function App(props) {
   };
 
   const [user, setUser] = useState(userExists);
-  
+
   const {
     state
   } = useApplicationData();
@@ -45,7 +45,7 @@ export default function App(props) {
             <Switch>
                <Route exact="true" path="/" component={Home} />
                <Route path="/login" render={(props) => <Login {...props} user={user} setUser={setUser} />} />
-               <Route path="/mentors" render={props => <Mentors data={state} />} />
+               <Route path="/mentors" render={props => <Mentors data={state} user={user}/>} />
                <Route path="/dashboard" component={Dashboard} />
                <Route path="/bookmentor" component={Bookmentor} />
            </Switch>
