@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { Redirect } from "react-router-dom";
-// import PropTypes from "prop-types";
 import axios from "axios";
 import "./Login.css";
 
@@ -8,9 +6,7 @@ function Login({ user, setUser, history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // const navigate = useNavigate();
-
-  // console.log("loginpage user", user);
+  
   useEffect(() => {
     if (user) {
       history.replace('/dashboard')
@@ -24,6 +20,7 @@ function Login({ user, setUser, history }) {
       email,
       password,
     });
+    
     const headers = {
       "Content-Type": "application/json",
     };
@@ -33,10 +30,14 @@ function Login({ user, setUser, history }) {
         headers: headers,
       })
       .then((response) => {
-        console.log(response.data);
-        setUser(response.data);
-        setError("");
-        history.replace('/dashboard')
+        if ( response.status === 200 ){
+          window.localStorage.setItem('user', JSON.stringify(response.data));
+          setUser({id: response.data.id, email: response.data.email});
+          history.replace('/dashboard');
+          setError("");
+        } else {
+          alert("Invalid Email or Password");
+        }
       })
       .catch((err) => {
         console.log("Error : ", err);
@@ -67,7 +68,7 @@ function Login({ user, setUser, history }) {
               onChange={(e) => setPassword(e.target.value)} />
           </div>
           <div className="input-group">
-            <button  name="submit" className="btn" disabled={!validateForm}>Login</button>
+            <button name="submit" className="btn" disabled={!validateForm}>Login</button>
           </div>
           <p className="login-register-text">Don't have an account?</p>
           <div className="input-group">

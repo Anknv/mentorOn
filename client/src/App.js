@@ -3,7 +3,8 @@ import {
   BrowserRouter,
   Routes, // instead of "Switch"
   Route,
-  Switch
+  Switch,
+  useHistory
 } from "react-router-dom";
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
@@ -17,7 +18,21 @@ import { Dashboard } from "./components/Dashboard";
 
 export default function App(props) {
 
-  const [user, setUser] = useState(null);
+  const history = useHistory();
+  
+  let userExists; try {  
+    userExists = JSON.parse(localStorage.getItem('user'))
+  } catch(err){
+    console.error(err);
+  };
+    
+  function logOut() {
+    localStorage.clear()
+    setUser(null)
+    history.replace('/')
+  };
+
+  const [user, setUser] = useState(userExists);
   
   const {
     state
@@ -25,7 +40,7 @@ export default function App(props) {
   return (
     <div className="App">
       <BrowserRouter>
-       <Navbar />
+       <Navbar logOut={logOut} user={user} />
          <div className="page-content">
           {/* <Fragment> */}
             <Switch>
