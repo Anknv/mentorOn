@@ -3,16 +3,15 @@ import './Mentor.css';
 import { Link } from 'react-router-dom';
 
 export default function Mentors(props) {
-  console.log("Test",props.data);
   const state = props.data;
   const mentorListings = state.mentorlist.mentorList && state.mentorlist.mentorList.map(user =>
 
-    <article className="tweet">
-        <header className="tweet--header">
-          <img className="tweet--avatar" src={user.image_url}/>
-          <div className="mentor--body">{user.description}</div>
+    <article className="mentor">
+        <header className="mentor--header">
+          <img className="mentor--avatar" src={user.image_url}/>
+          <div className="mentor--desc">{user.description}</div>
         </header>
-        <div className="tweet--body">
+        <div className="mentor--body">
           <p>Name       : {user.name}</p>
           <p>Email      : {user.email}</p>
           <p>Speciality : {user.speciality}</p>
@@ -23,9 +22,14 @@ export default function Mentors(props) {
 
         <div className="book--body">
           <h3>$100/ month</h3> <br/>
-          <Link className='book-links' to="bookmentor">
+          {props.user &&
+          <Link className='book-links' to={{
+            pathname: "bookmentor",
+            state: user,
+            student : props.user
+          }}>
             Book
-          </Link>
+          </Link>}
         </div>
 
 

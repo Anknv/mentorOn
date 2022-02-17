@@ -11,17 +11,12 @@ const [state, setState] = useState({
 });
 
 
-console.log("User APplication")
-
 useEffect(() => {
-  console.log("Working?")
   Promise.all([
     axios.get('/api/users'),
     axios.get('/api/mentorListings')
   ]).then((all) => {
-    console.log("all",all);
     const [first, second] = all;
-    console.log("second",second.data);
     setState(prev => ({ ...prev, users : first.data, mentorlist : second.data}));
   }).catch (err => console.log(err));
 },[]);
