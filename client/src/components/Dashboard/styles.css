@@ -9,3 +9,10 @@ body {
   justify-content: space-around;
 }
 
+.dashboard-month-picker {
+  text-align: center;
+  font-size: 3rem;
+  color: #3e98c7;
+  padding: 2rem 0;
+}
+
