@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom';
+import {SiFrontendmentor} from 'react-icons/si';
 import './Navbar.css'
 
 const Navbar = (props) => {
@@ -20,8 +21,9 @@ const Navbar = (props) => {
   return (
     <nav className='NavbarItems'>
       <ul>
-        <Link className='navbar-logo' to="/">
+        <Link className='navbar-logo' to='/' target='_blank' aria-label='MentorOn'>
           <h1>MentorOn</h1>
+          <SiFrontendmentor />
         </Link>
       </ul>
       <div className='nav-menu'>

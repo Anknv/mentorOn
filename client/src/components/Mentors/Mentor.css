@@ -1,4 +1,4 @@
-/* layout */
+/* layout
 
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
@@ -19,7 +19,6 @@
 
 body {
 	/*Custom font, loaded via Google */
-	font-family: "Source Sans Pro", sans-serif;
 	margin: 0;
 	color: #545149;
 	background-color: #f4f1ec;
@@ -31,7 +30,7 @@ aside {
 	/* Using an image as a background */
 	background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 	height: 400px;
-}
+} */
 
 /* Tablet and mobile layout*/
 
@@ -85,7 +84,7 @@ nav {
 	color: #fff;
 }
 .page-content {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .btn__text {
