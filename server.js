@@ -49,6 +49,8 @@ const mentorListings = require("./routes/mentorListings");
 const dashboardRoutes = require("./routes/dashboard");
 const { getUserFromSession } = require("./src/getUserFromSession");
 const loginRoute = require("./routes/login");
+const availableSpots = require("./routes/availableSpots");
+const bookPayment  = require("./routes/bookpayment");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -56,6 +58,8 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/mentorListings", mentorListings(db));
 app.use("/api/dashboard", dashboardRoutes(db));
 app.use("/api/login", loginRoute(db));
+app.use("/api/getspots", availableSpots(db));
+app.use("/api/paymentcheckout", bookPayment());
 // Note: mount other resources here, using the same pattern above
 
 // Home page

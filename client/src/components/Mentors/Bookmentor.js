@@ -3,29 +3,36 @@ import './Bookmentor.css';
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
-export default function Bookmentor() {
+export default function Bookmentor({history}) {
 
 const param = useLocation();
 const user  = param.state;
 const student = param.student;
 console.log("Student",student);
 
-function bookSession(user_id, mentor_id, month, year) {
-  axios.post('/api/booksession', {
-    user_id,
-    mentor_id,
-    month,
-    year
-  }).then(() => {
-    console.log("BookSession")
-  })
+function bookSession() {
+  console.log("booksession");
+  history.replace("/dashboard");
+}
+
+function paymentCheckout(event) {
+  event.preventDefault();
+
+   axios.post('/api/paymentcheckout').then(() => {
+     console.log("After Post")
+     bookSession();
+   }).catch(error => console.log(error))
+}
+
+function findmentors(){
+  history.replace("/mentors");
 }
 
   return (
 
  <>
     <div className="sessions">
-    <h2>Booking Sessions With {user.name}</h2>
+    <h2>Booking Session With {user.name}</h2>
     </div>
     <div className="sessions">
           <img className="book--avatar" src={user.image_url}/>
@@ -46,9 +53,7 @@ function bookSession(user_id, mentor_id, month, year) {
            </div>
       </div>
 
-    <form onSubmit={(event) => {
-        event.preventDefault();
-        console.log("Form")}}>
+    <form onSubmit={paymentCheckout}>
     <div className="payment-page">
     <div className="container">
       <h3>Confirm Your Payment</h3><br/>
@@ -109,8 +114,8 @@ function bookSession(user_id, mentor_id, month, year) {
              </div>
         </div>
     </div>
-    <button  name="submit" className="book-btn" onClick={bookSession}>Confirm</button>
-    <button  name="submit" className="book-btn">Cancel</button>
+    <button  name="submit" className="book-btn">Confirm</button>
+    <button  name="button" className="book-btn" onClick={findmentors}>Cancel</button>
   </div>
   </div>
   </form>
