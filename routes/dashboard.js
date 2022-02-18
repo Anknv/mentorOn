@@ -20,7 +20,8 @@ module.exports = (db) => {
 
   router.get("/user", (req, res) => {
     const user = getUserFromSession(req.session);
-    res.send(user.user_id);
+    console.log({user});
+    res.send(user);
   })
 
   router.get("/months", (req, res) => {

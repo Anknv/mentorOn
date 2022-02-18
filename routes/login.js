@@ -8,7 +8,7 @@ module.exports = (db) => {
         let email = req.body.email;
         let password = req.body.password;
         return db.query(`
-      SELECT id, name, email, password, mentors.id as "mentor_id"
+      SELECT users.id, name, email, password, mentors.id as mentor_id
       FROM users
       LEFT JOIN mentors ON mentors.user_id = users.id
       WHERE email = $1

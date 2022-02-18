@@ -1,44 +1,28 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Calendar } from "./Calendar"
-import { Goals } from "./Goals"
-import { MentorCard } from "./MentorCard"
-import './styles.css'
+import { MenteeDashboard } from "./MenteeDashboard";
+import { MentorDashboard } from "./MentorDashboard";
 
-const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-export const Dashboard = function(props) {
-
-  const [months, setMonths] = useState([]);
-  const [selectedMonth, setSelectedMonth] = useState({});
+export function Dashboard(props) {
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    loadMonths();
-  }, [])
+    loadUser();
+  }, [props.monthId])
 
-  function loadMonths() {
-    axios.get('/api/dashboard/months')
+  function loadUser() {
+    axios.get('/api/dashboard/user')
     .then((response) => {
-      console.log(1,{response})
-      setMonths(response.data);
-      setSelectedMonth(response.data[0]);
+      console.log({response})
+      setUser(response.data);
     })
   }
 
-  return <div>
-    <div className="dashboard-month-picker">
-      {months.map(month => (
-        <div onClick={() => setSelectedMonth(month)} className={`month ${selectedMonth.id === month.id ? 'selected' : ''}`}>
-          {month.month} {month.year}
-        </div>
-      ))}
-    </div>
-    {selectedMonth ? <div>
-      <div className="dashboard-top-row">
-        <MentorCard monthId={selectedMonth.id} />
-        <Calendar key={selectedMonth.id} month={monthNames.indexOf(selectedMonth.month)} year={selectedMonth.year} monthId={selectedMonth.id} />
-      </div>
-      <Goals monthId={selectedMonth.id} />
-    </div> : ''}
-  </div>
+  if (user && user.mentor_id) {
+    return <MentorDashboard />
+  } else if (user && !user.mentor_id) {
+    return <MenteeDashboard />
+  } else {
+    return 'loading...';
+  }
 }
