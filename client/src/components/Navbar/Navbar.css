@@ -12,6 +12,9 @@
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
+    /* color:white; */
+    text-decoration: none;
+    padding:0.5rem 1rem ;
 }
 
 .fa-react {
