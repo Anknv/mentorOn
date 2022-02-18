@@ -8,8 +8,9 @@ module.exports = (db) => {
         let email = req.body.email;
         let password = req.body.password;
         return db.query(`
-      SELECT id, name, email, password 
+      SELECT id, name, email, password, mentors.id as "mentor_id"
       FROM users
+      LEFT JOIN mentors ON mentors.user_id = users.id
       WHERE email = $1
     `, [email])
             .then(response => {
@@ -20,9 +21,11 @@ module.exports = (db) => {
                         let user_name = response.rows[0].name;
                         let user_id = response.rows[0].id;
                         let user_email = response.rows[0].email;
+                        let mentor_id = response.rows[0].mentor_id;
                         req.session["user_name"] = user_name;
                         req.session["user_id"] = user_id;
                         req.session["user_email"] = user_email;
+                        req.session["mentor_id"] = mentor_id;
                         // // req.session.cookie.user_name = user_name;
                         // console.log(req.session,'---->>>', response.rows[0])
                         res.status(200).json(response.rows[0]);

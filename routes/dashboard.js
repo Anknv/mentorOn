@@ -18,25 +18,30 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
+  router.get("/user", (req, res) => {
+    const user = getUserFromSession(req.session);
+    res.send(user.user_id);
+  })
+
   router.get("/months", (req, res) => {
-    //const user = getUserFromSession(req.session);
-    getMonths(db, '1').then((month) => {
+    const user = getUserFromSession(req.session);
+    getMonths(db, user.user_id).then((month) => {
       res.send(month);
     });
   });
 
   router.get("/mentor-card", (req, res) => {
     const monthId = req.query.month_id;
-    //const user = getUserFromSession(req.session);
-    getMentorCard(db, monthId, '1').then((mentor) => {
+    const user = getUserFromSession(req.session);
+    getMentorCard(db, monthId, user.user_id).then((mentor) => {
       res.send(mentor);
     });
   });
 
   router.get("/mentee-calls", (req, res) => {
     const monthId = req.query.month_id;
-    //const user = getUserFromSession(req.session);
-    getMenteeCalls(db, monthId, '1').then((calls) => {
+    const user = getUserFromSession(req.session);
+    getMenteeCalls(db, monthId, user.user_id).then((calls) => {
       res.send(calls);
     });
   });
@@ -44,24 +49,24 @@ module.exports = (db) => {
   router.post("/mentee-call", (req, res) => {
     const monthId = req.body.month_id;
     const dayOfMonth = req.body.day_of_month;
-    //const user = getUserFromSession(req.session);
-    createMenteeCalls(db, monthId, '1', dayOfMonth).then((calls) => {
+    const user = getUserFromSession(req.session);
+    createMenteeCalls(db, monthId, user.user_id, dayOfMonth).then((calls) => {
       res.send(calls);
     });
   });
 
   router.post("/delete-mentee-call", (req, res) => {
     const callId = req.body.call_id;
-    //const user = getUserFromSession(req.session);
-    deleteMenteeCalls(db, callId, '1').then((calls) => {
+    const user = getUserFromSession(req.session);
+    deleteMenteeCalls(db, callId, user.user_id).then((calls) => {
       res.send(calls);
     });
   });
 
   router.get("/mentee-goals", (req, res) => {
     const monthId = req.query.month_id;
-    //const user = getUserFromSession(req.session);
-    getMenteeGoals(db, monthId, '1').then((goals) => {
+    const user = getUserFromSession(req.session);
+    getMenteeGoals(db, monthId, user.user_id).then((goals) => {
       res.send(goals.sort((a,b) => a.id - b.id));
     });
   });
@@ -70,8 +75,8 @@ module.exports = (db) => {
     const goalId = req.body.goal_id;
     const monthId = req.body.month_id;
     const isDone = req.body.is_done;
-    //const user = getUserFromSession(req.session);
-    markGoalDone(db, isDone, goalId, '1', monthId).then((goals) => {
+    const user = getUserFromSession(req.session);
+    markGoalDone(db, isDone, goalId, user.user_id, monthId).then((goals) => {
       res.send(goals);
     });
   });
