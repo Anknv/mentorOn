@@ -14,6 +14,11 @@
   padding: 1rem;
 }
 
+.calendar-day.has-call {
+  background-color: #3ec7ae;
+  color: white;
+}
+
 .calendar-day:hover {
   background-color: #d6d6d6;
   cursor: pointer;
@@ -26,4 +31,20 @@
 .calendar-day.empty:hover,
 .calendar-week.header .calendar-day:hover {
   background-color: white;
+}
+
+.calendar-legend {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.calendar-legend > span {
+  display: inline-block;
+  background-color: #3ec7ae;
+  padding: 1rem;
+  margin-right: 0.5rem;
 }

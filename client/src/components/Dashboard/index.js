@@ -8,7 +8,7 @@ export const Dashboard = function(props) {
     <div className="dashboard-month-picker">February 2022</div>
     <div className="dashboard-top-row">
       <MentorCard monthId='1' />
-      <Calendar month={1} year={2022} />
+      <Calendar month={1} year={2022} monthId='1'/>
     </div>
     <Goals monthId='1' />
   </div>

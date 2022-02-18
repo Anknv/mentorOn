@@ -34,13 +34,14 @@ module.exports = (db) => {
 
   router.post("/mentee-call", (req, res) => {
     const monthId = req.body.month_id;
+    const dayOfMonth = req.body.day_of_month;
     //const user = getUserFromSession(req.session);
-    createMenteeCalls(db, monthId, '1').then((calls) => {
+    createMenteeCalls(db, monthId, '1', dayOfMonth).then((calls) => {
       res.send(calls);
     });
   });
 
-  router.delete("/mentee-call", (req, res) => {
+  router.post("/delete-mentee-call", (req, res) => {
     const callId = req.body.call_id;
     //const user = getUserFromSession(req.session);
     deleteMenteeCalls(db, callId, '1').then((calls) => {

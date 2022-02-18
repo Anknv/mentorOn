@@ -1,6 +1,44 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
 import './styles.css';
 
 export const Calendar = function(props) {
+
+  const [calls, setCalls] = useState([]);
+
+  useEffect(() => {
+    loadCalls();
+  }, [props.monthId])
+
+  function loadCalls() {
+    axios.get('/api/dashboard/mentee-calls', {
+      params: {
+        month_id: props.monthId
+      }
+    })
+    .then((response) => {
+      console.log(response)
+      setCalls(response.data);
+    })
+  }
+
+  function selectCall(day, call) {
+    if (!call) {
+      axios.post('/api/dashboard/mentee-call', {
+        month_id: props.monthId,
+        day_of_month: day,
+      }).then(() => {
+        loadCalls();
+      })
+    } else {
+      axios.post('/api/dashboard/delete-mentee-call', {
+        call_id: call.id
+      }).then(() => {
+        loadCalls();
+      })
+    }
+  }
+
 
   const weeks = [];
 
@@ -44,8 +82,18 @@ export const Calendar = function(props) {
       <div className="calendar-day">FRI</div>
       <div className="calendar-day">SAT</div>
     </div>
-    {weeks.map(week => <div className="calendar-week">
-      {week.map(day => <div className={`calendar-day ${day === '' ? 'empty' : ''}`}>{day}</div>)}
+    {weeks.map((week, i) => <div key={i} className="calendar-week">
+      {week.map(day => {
+        const call = calls.find(call => call.day_of_month === day)
+        return <div
+          key={day}
+          onClick={() => selectCall(day, call)}
+          className={`calendar-day ${day === '' ? 'empty' : ''} ${call ? 'has-call' : ''}`}
+        >
+          {day}
+        </div>;
+      })}
     </div>)}
+    <div className='calendar-legend'><span></span> Scheduled calls with mentor</div>
   </div>
 }
