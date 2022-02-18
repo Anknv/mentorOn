@@ -14,10 +14,11 @@ const [state, setState] = useState({
 useEffect(() => {
   Promise.all([
     axios.get('/api/users'),
-    axios.get('/api/mentorListings')
+    axios.get('/api/mentorListings'),
+    axios.get('/api/getspots/check')
   ]).then((all) => {
-    const [first, second] = all;
-    setState(prev => ({ ...prev, users : first.data, mentorlist : second.data}));
+    const [first, second, third] = all;
+    setState(prev => ({ ...prev, users : first.data, mentorlist : second.data, vacantspots : third.data}));
   }).catch (err => console.log(err));
 },[]);
 
