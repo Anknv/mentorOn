@@ -1,10 +1,9 @@
 .mentor-card {
   color: #3e98c7;
   background-color: white;
-  border-radius: 16px;
+  border-radius: 1rem;
   display: inline-flex;
-  padding: 2rem 4rem;
-  padding-right: 15rem;
+  padding: 1rem;
   flex-direction: column;
 }
 
@@ -21,6 +20,10 @@
 .mentor-card--mentor-image {
   border-radius: 50%;
   height: 8rem;
+}
+
+.mentor-card-row {
+  display: flex;
 }
 
 /*

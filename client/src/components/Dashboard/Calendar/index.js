@@ -48,7 +48,9 @@ export const Calendar = function(props) {
   const lastDay = new Date(props.year, props.month + 1, 0);
   const daysInMonth = lastDay.getDate();
 
+  console.log({firstDay,dayOfWeek,lastDay,daysInMonth})
   const buildWeek = function(startDay, currentDate, maxDate) {
+    console.log({startDay, currentDate, maxDate});
     // Sun is 0, Sat is 6
     const week = [];
     for (let i = 0; i < startDay; i++) {
@@ -67,6 +69,7 @@ export const Calendar = function(props) {
 
   while (currentDate < daysInMonth) {
     const newWeek = buildWeek(startDay, currentDate, daysInMonth);
+    console.log({newWeek})
     weeks.push(newWeek.week);
     currentDate = newWeek.currentDate;
     startDay = 0;

@@ -27,8 +27,12 @@ function loadCard() {
       <span className="mentor-name">{card.name}</span>
     </div>
     <div className="mentor-speciality">{card.speciality}</div>
-    <div className="mentor-location">{card.location}</div>
-    <div className="mentor-language">{card.language}</div>
-    {/* {JSON.stringify({card})} */}
+
+    <div className="mentor-card-row">
+      <i class="fas fa-map-pin"></i>
+      <div className="mentor-location">{card.location}</div>
+      <i class="fas fa-globe"></i>
+      <div className="mentor-language">{card.language}</div>
+    </div>
   </div>
 }

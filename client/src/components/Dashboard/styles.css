@@ -10,9 +10,22 @@ body {
 }
 
 .dashboard-month-picker {
-  text-align: center;
-  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
   color: #3e98c7;
   padding: 2rem 0;
+}
+
+.dashboard-month-picker .month {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.dashboard-month-picker .selected {
+  font-size: 3rem;
+  font-weight: bold;
+  border-bottom: solid 4px;
 }
 

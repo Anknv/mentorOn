@@ -11,11 +11,20 @@ const { deleteMenteeCalls } = require('../src/dbQueries/deleteMenteeCall');
 const { getMenteeCalls } = require('../src/dbQueries/getMenteeCalls');
 const { getMenteeGoals } = require('../src/dbQueries/getMenteeGoals');
 const { getMentorCard } = require('../src/dbQueries/getMentorCard');
+const { getMonths } = require('../src/dbQueries/getMonths');
 const { markGoalDone } = require('../src/dbQueries/markGoalDone');
 const { getUserFromSession } = require('../src/getUserFromSession');
 const router  = express.Router();
 
 module.exports = (db) => {
+
+  router.get("/months", (req, res) => {
+    //const user = getUserFromSession(req.session);
+    getMonths(db, '1').then((month) => {
+      res.send(month);
+    });
+  });
+
   router.get("/mentor-card", (req, res) => {
     const monthId = req.query.month_id;
     //const user = getUserFromSession(req.session);
