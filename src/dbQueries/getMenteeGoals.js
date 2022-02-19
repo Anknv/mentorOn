@@ -1,11 +1,16 @@
-exports.getMenteeGoals = (db, monthId, userId) => {
+exports.getMenteeGoals = (db, monthId, userId, mentorId) => {
   const queryString = `
     SELECT * FROM goals
     WHERE session_id = (
       SELECT id FROM sessions
-      WHERE month_id = $1 AND user_id = $2
+      WHERE month_id = $1 AND user_id = $2 ${mentorId ? 'AND mentor_id = $3' : ''}
     )
   `;
 
-  return db.query(queryString, [monthId, userId]).then((res) => res.rows);
+  const queryArgs = [monthId, userId];
+  if (mentorId) {
+    queryArgs.push(mentorId);
+  }
+
+  return db.query(queryString, queryArgs).then((res) => res.rows);
 }

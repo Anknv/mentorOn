@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Calendar } from "./Calendar"
-import { Goals } from "./Goals"
+import { Goals } from "../Goals"
 import { MentorCard } from "./MentorCard"
 import './styles.css'
 
@@ -17,7 +17,7 @@ export const MenteeDashboard = function(props) {
   }, [])
 
   function loadMonths() {
-    axios.get('/api/dashboard/months')
+    axios.get('/api/dashboard/mentee-months')
     .then((response) => {
       console.log(1,{response})
       setMonths(response.data);

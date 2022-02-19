@@ -13,10 +13,11 @@ const { getMenteeCalls } = require('../src/dbQueries/getMenteeCalls');
 const { getMenteeGoals } = require('../src/dbQueries/getMenteeGoals');
 const { getMentorCalls } = require('../src/dbQueries/getMentorCalls');
 const { getMentorCard } = require('../src/dbQueries/getMentorCard');
-const { getMonths } = require('../src/dbQueries/getMonths');
+const { getMenteeMonths } = require('../src/dbQueries/getMenteeMonths');
 const { getStudentCards } = require('../src/dbQueries/getStudentCards');
 const { markGoalDone } = require('../src/dbQueries/markGoalDone');
 const { getUserFromSession } = require('../src/getUserFromSession');
+const { getMentorMonths } = require('../src/dbQueries/getMentorMonths');
 const router  = express.Router();
 
 module.exports = (db) => {
@@ -27,9 +28,16 @@ module.exports = (db) => {
     res.send(user);
   })
 
-  router.get("/months", (req, res) => {
+  router.get("/mentee-months", (req, res) => {
     const user = getUserFromSession(req.session);
-    getMonths(db, user.user_id).then((month) => {
+    getMenteeMonths(db, user.user_id).then((month) => {
+      res.send(month);
+    });
+  });
+
+  router.get("/mentor-months", (req, res) => {
+    const user = getUserFromSession(req.session);
+    getMentorMonths(db, user.mentor_id).then((month) => {
       res.send(month);
     });
   });
@@ -69,8 +77,9 @@ module.exports = (db) => {
 
   router.get("/mentee-goals", (req, res) => {
     const monthId = req.query.month_id;
+    const userId = req.query.user_id;
     const user = getUserFromSession(req.session);
-    getMenteeGoals(db, monthId, user.user_id).then((goals) => {
+    getMenteeGoals(db, monthId, userId || user.user_id, user.mentor_id).then((goals) => {
       res.send(goals.sort((a,b) => a.id - b.id));
     });
   });

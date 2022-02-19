@@ -1,0 +1,36 @@
+.student-card {
+  color: #3e98c7;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.student-card .goals .goals-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 4rem;
+}
+
+.student-image {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.student-image > img {
+  margin-right: 2rem;
+}
+
+.student-card--student-image {
+  border-radius: 50%;
+  height: 8rem;
+}
+
+.student-card-row {
+  display: flex;
+}
+

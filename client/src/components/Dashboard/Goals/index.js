@@ -15,10 +15,12 @@ export const Goals = function(props) {
   function loadGoals() {
     axios.get('/api/dashboard/mentee-goals', {
       params: {
-        month_id: props.monthId
+        month_id: props.monthId,
+        user_id: props.userId,
       }
     })
     .then((response) => {
+      console.log('goals', {response});
       setGoals(response.data);
     })
   }
