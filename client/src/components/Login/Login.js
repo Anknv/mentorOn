@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Login.css";
+import Welcome from '../../Icons/Welcome.png'
 
 function Login({ user, setUser, history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  
+
   useEffect(() => {
     if (user) {
       history.replace('/dashboard')
@@ -20,7 +21,7 @@ function Login({ user, setUser, history }) {
       email,
       password,
     });
-    
+
     const headers = {
       "Content-Type": "application/json",
     };
@@ -30,9 +31,9 @@ function Login({ user, setUser, history }) {
         headers: headers,
       })
       .then((response) => {
-        if ( response.status === 200 ){
+        if (response.status === 200) {
           window.localStorage.setItem('user', JSON.stringify(response.data));
-          setUser({id: response.data.id, email: response.data.email});
+          setUser({ id: response.data.id, email: response.data.email });
           history.replace('/dashboard');
           setError("");
         } else {

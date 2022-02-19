@@ -1,16 +1,25 @@
 .login-page {
    display: flex;
-  justify-content: center;
+  justify-content:center;
+  background-image: url(../../Icons/Welcome.png);
+  background-color: #cccccc; 
+  height:704px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover; 
 }
+
 
 .login-container {
     margin-top: 70px;
     width: 400px;
-    min-height: 400px;
+    max-height: 450px;
     background: #FFF;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0,0,0,.3);
     padding: 40px 30px;
+    
 }
 
 .login-container .login-text {
@@ -42,16 +51,17 @@
 }
 
 .login-container .login-email .input-group input:focus, .login-container .login-email .input-group input:valid {
-    border-color: rgb(199, 71, 71);
+    border-color: rgb(141, 61, 61);
 }
 
 .login-container .login-email .input-group .btn {
+    font-family:'Montserrat', sans-serif;
     display: block;
     width: 100%;
     padding: 15px 20px;
     text-align: center;
     border: none;
-    background: rgb(129, 56, 56);
+    background: rgb(119, 53, 53);
     outline: none;
     border-radius: 30px;
     font-size: 1.2rem;
@@ -62,13 +72,14 @@
 
 .login-container .login-email .input-group .btn:hover {
     transform: translateY(-5px);
-    background: rgb(177, 41, 41);
+    background: rgba(155, 75, 75, 0.753);
 }
 
 .login-register-text,
 button .login-register-text  {
     color: #111;
-    font-weight: 600;
+    font-weight: 580;
+    padding-bottom: 15px;
 }
 
 @media (max-width: 430px) {
