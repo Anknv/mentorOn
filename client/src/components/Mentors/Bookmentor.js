@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Bookmentor.css';
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import {useState} from "react";
+import getMonthID from "../../hooks/getMonthID";
 
 export default function Bookmentor({history}) {
 
 const param = useLocation();
 const user  = param.state;
 const student = param.student;
-console.log("Student",student);
-
+const months  = param.months;
+console.log("user",user);
+console.log("student",student);
+const [mon, setMon] = useState("");
+const [year,setYear] = useState("")
 function bookSession() {
   console.log("booksession");
-  history.replace("/dashboard");
+  const month_id = getMonthID(mon,year,months);
+  axios.post('/api/booksession',{
+    params: {
+      user_id: student.id,
+      mentor_id: user.user_id,
+      month_id
+    }
+  }).then(() => {
+    console.log("After Inserting into Sessions")
+    history.replace("/dashboard");
+  }).catch(error => console.log(error))
+}
+
+function setMonth(event) {
+    setMon(event.target.value);
+}
+
+function setYearVal(event) {
+    setYear(event.target.value);
 }
 
 function paymentCheckout(event) {
@@ -38,15 +61,17 @@ function findmentors(){
           <img className="book--avatar" src={user.image_url}/>
           <div className="bookmonth">
             <p>Select Month :</p>
-             <select name="months" id="months">
-               <option value="Mar">Mar</option>
-               <option value="Apr">Apr</option>
+             <select name="months" id="months" onChange={setMonth}>
+             <option value=""></option>
+               <option value="March">March</option>
+               <option value="April">April</option>
               </select>
            </div>
 
            <div className="bookyear">
              <p>Select Year :</p>
-             <select name="year" id="year">
+             <select name="year" id="year" onChange={setYearVal}>
+               <option value=""></option>
                <option value="2022">2022</option>
                <option value="2023">2023</option>
               </select>

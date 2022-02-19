@@ -9,7 +9,7 @@ import { MdCall, MdTaskAlt } from 'react-icons/md';
 export default function Mentors(props) {
 
   const state = props.data;
-  console.log("Vacant Spots", state.vacantspots);
+  console.log("months", state);
 
   const mentorListings = state.mentorlist.mentorList && state.mentorlist.mentorList.map(user => {
     return <article className="mentor">
@@ -50,7 +50,8 @@ export default function Mentors(props) {
           <Link className='book-links' to={{
             pathname: "bookmentor",
             state: user,
-            student: props.user
+            student: props.user,
+            months : state.months_tbl
           }}>
             Book
           </Link>}
