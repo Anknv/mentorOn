@@ -21,7 +21,7 @@ const Navbar = (props) => {
   return (
     <nav className='NavbarItems'>
       <ul>
-        <Link className='navbar-logo' to='/' target='_blank' aria-label='MentorOn'>
+        <Link className='navbar-logo' to='/'  aria-label='MentorOn'>
           <h1>MentorOn</h1>
           <SiFrontendmentor />
         </Link>
