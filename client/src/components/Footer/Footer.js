@@ -59,7 +59,7 @@ const Footer = () => {
                             <Link className='social-icon-link' to='/' target='_blank' aria-label='Twitter'>
                                 <FaTwitter/>
                             </Link>
-                            <Link className='social-icon-link' to='/https://github.com/abiramitoronto/mentorOn' target='_blank' aria-label='Github'>
+                            <Link className='social-icon-link' to={{ pathname: "https://github.com/abiramitoronto/mentorOn" }} target='_blank' aria-label='Github'>
                                 <FaGithub/>
                             </Link>
                         </div>

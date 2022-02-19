@@ -70,12 +70,14 @@
     color:white;
     text-decoration: none;
     padding:0.4rem 1rem ;
+    transition: .5s;
 }
 
 .getstarted-link:hover {
+    transform: translateY(-5px);
     background-color: #f5b4b48c;
     border-radius: 15px;
-    transition: all 0.2s ease-out;
+    /* transition: all 0.2s ease-out; */
 }
 
 
