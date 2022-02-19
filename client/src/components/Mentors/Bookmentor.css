@@ -4,11 +4,13 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
  }
+
  .sessions{
   display: flex;
   justify-content: center;
   padding: 10px 20px;
  }
+ 
  .bookmonth{
   display: flex;
   justify-content: space-between;

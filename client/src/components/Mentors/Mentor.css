@@ -7,11 +7,11 @@
  html {
 	box-sizing: border-box;
 }
-*,
+/* *,
 *:before,
 *:after {
 	box-sizing: inherit;
-}
+} */
 
 /*
  * Global layout
@@ -22,7 +22,7 @@ body {
 	margin: 0;
 	color: #545149;
 	background-color: #f4f1ec;
-	font-size: 24px;
+	font-size: 17px;
 }
 
 aside {
@@ -30,7 +30,7 @@ aside {
 	/* Using an image as a background */
 	background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 	height: 400px;
-} */
+} 
 
 /* Tablet and mobile layout*/
 
@@ -170,20 +170,27 @@ nav {
 }
 
 .mentor {
-
-	margin: 200px 200px;
+	margin: 200px 250px;
 	padding: 10px;
-	border: 4px solid #545149;
+	border: 4px solid #6b665a;
+	border-radius: 50px;
+	border-width: 3px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.2s ease-in-out;
+	background-color: #b87c7f17;
 }
 
 .mentor:hover {
 	-webkit-box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
 	-moz-box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
 	box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
+	transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .mentor--header {
-	padding: 8px;
+	padding: 20px;
 	transition: all 0.25s ease-in-out;
 }
 
@@ -197,7 +204,9 @@ nav {
 	float: left;
 	width: 250px;
 	height: 250px;
-	padding: 4px;
+	border: solid #6b665a;
+	border-radius: 120px 120px 120px 120px;
+	border-width: 2px;
 }
 
 .mentor--name {
@@ -205,7 +214,7 @@ nav {
 	float: left;
 	margin: 0.5em 0.5px 0px 0.5em;
 	font-weight: 300;
-  padding: 10px 20px;
+    padding: 10px 20px;
 }
 
 
@@ -213,22 +222,47 @@ nav {
 	color:black;
 	margin-right: 15px;
 	font-size: 24px;
-  padding: 20px 10px;
-  text-align: right;
+    padding: 20px 10px;
+    text-align: right;
+}
+
+.monthly-pay {
+	display: flex;
+	justify-content: end;
+}
+
+.fa-icons {
+	padding: 10px;
+	display: flex;
+	justify-content: flex-start;
+	font-size: 16px;
+	padding-left: 10px;
+}
+
+.chat-icon:hover, .call-icon:hover, .tasks-icon:hover {
+	color: #86314685;
+}
+
+.chat-icon, .call-icon, .tasks-icon {
+	padding: 10px;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	word-wrap: break-word;
 }
 
 .mentor--body {
-	padding: 10px 20px;
+	padding-left: 30px;
 	word-wrap: break-word;
 
 }
 
  .mentor--desc {
-
-  margin: 20px 0;
   width: 100%;
   max-width: 600px;
-  height: 200px;
+  /* height: 200px; */
   float:right;
   box-sizing: border-box;
   display: flex;
@@ -236,9 +270,15 @@ nav {
   justify-content: space-between;
   align-items: stretch;
   align-content: stretch;
-
+  font-size: 18px;
+  padding-top: 35px;
+  word-wrap: break-word;
 }
 
+.mentor--desc h2 {
+	padding-bottom:'10px';
+	font-weight: bold;
+}
 
 .book-links {
   color:black;
@@ -247,8 +287,6 @@ nav {
   border: 2px solid black;
   box-sizing: border-box;
 }
-
-
 
 @media only screen and (max-width: 1025px) {
 	.profile__image {
