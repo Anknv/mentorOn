@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Login.css";
-import Welcome from '../../Icons/Welcome.png'
 
 function Login({ user, setUser, history }) {
   const [email, setEmail] = useState("");
