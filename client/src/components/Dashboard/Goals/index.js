@@ -35,6 +35,16 @@ export const Goals = function(props) {
     })
   }
 
+  function addNewGoal(description) {
+    axios.post('/api/dashboard/create-mentee-goal', {
+      description: description,
+      month_id: props.monthId,
+      user_id: props.userId,
+    }).then(() => {
+      loadGoals();
+    })
+  }
+
   const percentage = Math.round(goals.reduce((prev, current) => {
     if (current.is_done) {
       return prev + 1
@@ -44,13 +54,27 @@ export const Goals = function(props) {
   }, 0) / goals.length * 100) || 0;
 
   return <div className="goals">
-    <ul className="goals--list">
-      {goals.map(goal => (
-        <li className="goals--list-item" key={goal.id}>
-          <input type='checkbox' onChange={(event) => markGoalDone(goal.id, event.target.checked)} checked={goal.is_done} /> {goal.description}
-        </li>
-      ))}
-    </ul>
+    <div className="goals--list-container">
+      <ul className="goals--list">
+        {goals.map(goal => (
+          <li className="goals--list-item" key={goal.id}>
+            {props.userId ? '' : <input type='checkbox' onChange={(event) => markGoalDone(goal.id, event.target.checked)} checked={goal.is_done} />}
+            {goal.description}
+          </li>
+        ))}
+      </ul>
+      {goals.length < 5 ? <input
+        className="goals--new-goal"
+        type='text'
+        onKeyDown={event => {
+          if (event.key === 'Enter') {
+            addNewGoal(event.target.value);
+            event.target.value = '';
+          }
+        }}
+        placeholder="Type a new goal..."
+      /> : ''}
+    </div>
     <div className='goals--progress-circle'>
       <CircularProgressbar value={percentage} text={`${percentage}%`} />
     </div>

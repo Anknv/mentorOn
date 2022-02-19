@@ -95,10 +95,11 @@ module.exports = (db) => {
   });
 
   router.post("/create-mentee-goal", (req, res) => {
+    const userId = req.body.user_id;
     const monthId = req.body.month_id;
     const description = req.body.description;
     const user = getUserFromSession(req.session);
-    createMenteeGoal(db, monthId, user.mentor_id, description).then((goal) => {
+    createMenteeGoal(db, monthId, userId, user.mentor_id, description).then((goal) => {
       res.send(goal);
     });
   });

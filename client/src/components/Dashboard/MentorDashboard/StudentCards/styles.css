@@ -8,7 +8,7 @@
   justify-content: space-around;
 }
 
-.student-card .goals .goals-list {
+.student-card .goals .goals--list-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
