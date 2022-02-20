@@ -28,6 +28,7 @@ module.exports = (db) => {
                         req.session["mentor_id"] = mentor_id;
                         // // req.session.cookie.user_name = user_name;
                         // console.log(req.session,'---->>>', response.rows[0])
+                        delete response.rows[0].password;
                         res.status(200).json(response.rows[0]);
                     } else {
                     //   return res.redirect("/login");

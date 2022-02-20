@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Agenda } from "./Agenda";
 import { StudentCards } from "./StudentCards";
 
 export function MentorDashboard(props) {
@@ -28,6 +29,7 @@ export function MentorDashboard(props) {
         </div>
       ))}
     </div>
+    <Agenda monthId={selectedMonth.id} />
     {selectedMonth ? <div>
       <StudentCards monthId={selectedMonth.id} />
     </div> : ''}

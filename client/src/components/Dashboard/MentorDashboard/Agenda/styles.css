@@ -1,0 +1,30 @@
+.agenda {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.agenda-table-container {
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  text-align: center;
+}
+
+.agenda-table-container > h3 {
+  color: #3e98c7;
+}
+
+.agenda-table {
+  border-collapse: collapse;
+}
+
+.agenda-table td,
+.agenda-table th {
+  padding: 1rem;
+  text-align: center;
+}
+
+.agenda-table td {
+  border-bottom: solid 1px #d6d6d6;
+}

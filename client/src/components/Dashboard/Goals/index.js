@@ -63,7 +63,7 @@ export const Goals = function(props) {
           </li>
         ))}
       </ul>
-      {goals.length < 5 ? <input
+      {goals.length < 5 && props.userId ? <input
         className="goals--new-goal"
         type='text'
         onKeyDown={event => {
