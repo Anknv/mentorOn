@@ -18,10 +18,6 @@ const Navbar = (props) => {
     }];
   }
 
-  // if(props.user) {
-  //   links = [{ path: 'dashboard', text: 'Dashboard'}];
-  // }
-
   return (
     <nav className='NavbarItems'>
       <ul>
