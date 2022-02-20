@@ -18,6 +18,10 @@ const Navbar = (props) => {
     }];
   }
 
+  // if(props.user) {
+  //   links = [{ path: 'dashboard', text: 'Dashboard'}];
+  // }
+
   return (
     <nav className='NavbarItems'>
       <ul>
@@ -31,8 +35,9 @@ const Navbar = (props) => {
           <Link className='nav-links' to="mentors">
             Find Mentors
           </Link>
+          {props.user ? <Link className='nav-links'to='dashboard'>Dashboard</Link> : ''}
+          {props.user ? <span className='nav-link-welcome'>Welcome, {props.user.name} {props.user.mentor_id ? '(Mentor)' : '(Mentee)'}</span> : ''}
           {links.map((link) => { return <Link onClick={link.onClick} className='nav-links' to={link.path}>{link.text}</Link> })}
-          {props.user ? <span>Welcome, {props.user.name} {props.user.mentor_id ? '(Mentor)' : '(Mentee)'}</span> : ''}
         </ul>
       </div>
     </nav>

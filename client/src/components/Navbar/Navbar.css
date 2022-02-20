@@ -36,7 +36,7 @@
     margin-right: 2.rem;
 }
 
-.nav-links {
+.nav-links, .nav-link-welcome {
     color:white;
     text-decoration: none;
     padding:0.5rem 1rem ;
