@@ -53,9 +53,10 @@ export const Goals = function(props) {
 
   }, 0) / goals.length * 100) || 0;
 
-  return ( 
+  return (
   <div className="goals">
     <div className="goals--list-container">
+      <h3 className="goals--title-header">Goals</h3>
       <ul className="goals--list">
         {goals.map(goal => (
           <li className="goals--list-item" key={goal.id}>

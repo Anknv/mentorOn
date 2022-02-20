@@ -32,7 +32,7 @@ function Login({ user, setUser, history }) {
       .then((response) => {
         if (response.status === 200) {
           window.localStorage.setItem('user', JSON.stringify(response.data));
-          setUser({ id: response.data.id, email: response.data.email });
+          setUser(response.data);
           history.replace('/dashboard');
           setError("");
         } else {
