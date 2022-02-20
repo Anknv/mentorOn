@@ -172,18 +172,29 @@ nav {
 .mentor {
 	margin: 200px 250px;
 	padding: 10px;
-	border: 4px solid #6b665a;
+	border: 4px solid rgba(158, 144, 128, 0.424);
 	border-radius: 50px;
 	border-width: 3px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	box-shadow: 2px 3px 3px 2px rgba(0, 0, 0, 0.192);
     transition: all 0.2s ease-in-out;
-	background-color: #b87c7f17;
+	background-color: #dad5d2e0;
+}
+
+.tweets {
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3050px;
+    overflow: hidden;
 }
 
 .mentor:hover {
-	-webkit-box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
-	-moz-box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
-	box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
+	-webkit-box-shadow: 8px 3px 0px 0px rgba(153, 153, 153, 0.596);
+	-moz-box-shadow: 8px 3px 0px 0px rgba(149, 149, 149, 0.589);
+	box-shadow: 8px 8px 0px 0px rgba(175, 166, 154, 0.555);
 	transform: scale(1.02);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -204,7 +215,7 @@ nav {
 	float: left;
 	width: 250px;
 	height: 250px;
-	border: solid #6b665a;
+	border: solid rgba(158, 144, 128, 0.424);
 	border-radius: 120px 120px 120px 120px;
 	border-width: 2px;
 }
@@ -253,15 +264,26 @@ nav {
 	word-wrap: break-word;
 }
 
+.container-mentors {
+	background-image: url(../../Icons/background.jpg);
+	background-color: #cccccc; 
+	height:3050px;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover; 
+}
+
 .mentor--body {
 	padding-left: 30px;
 	word-wrap: break-word;
-
+	color: black;
 }
 
- .mentor--desc {
+.mentor--desc {
   width: 100%;
   max-width: 600px;
+  color:black;
   /* height: 200px; */
   float:right;
   box-sizing: border-box;
@@ -278,7 +300,16 @@ nav {
 .mentor--desc h2 {
 	padding-bottom:'10px';
 	font-weight: bold;
+	color: black;
 }
+
+/* .video-mentors {
+    width: 100%;
+    height: 3070px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    background:#232a34;
+} */
 
 .book-links {
   color:rgb(59, 8, 15);

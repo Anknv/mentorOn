@@ -6,6 +6,7 @@ import { BsChatDotsFill } from 'react-icons/bs';
 import { MdCall, MdTaskAlt } from 'react-icons/md';
 
 
+
 export default function Mentors(props) {
 
   const state = props.data;
@@ -51,21 +52,20 @@ export default function Mentors(props) {
             pathname: "bookmentor",
             state: user,
             student: props.user,
-            months : state.months_tbl
+            months: state.months_tbl
           }}>
             Book
           </Link>}
       </div>
-
-
     </article>
   });
 
   return (
-    <section className="tweets">
-
-      {mentorListings}
-
+    <section className="container-mentors">
+      {/* <video className="video-mentors" autoPlay loop muted src={Video2} type='video/mp4'></video> */}
+      <div className="tweets">
+        {mentorListings}
+      </div>
     </section>
   )
 }
