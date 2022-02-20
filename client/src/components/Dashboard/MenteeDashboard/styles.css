@@ -4,6 +4,16 @@ body {
   margin: 0;
 }
 
+.dashboard-container {
+  background-image: url(../../../Icons/background4.jpg);
+	background-color: #cccccc; 
+	height:840px;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat; 
+	background-size: cover; 
+}
+
 .dashboard-top-row {
   display: flex;
   justify-content: space-around;
@@ -14,7 +24,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  color: #4e443ea2;
+  color: #49202596;
   padding: 2rem 0;
 }
 
