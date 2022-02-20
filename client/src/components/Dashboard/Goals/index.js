@@ -53,7 +53,8 @@ export const Goals = function(props) {
 
   }, 0) / goals.length * 100) || 0;
 
-  return <div className="goals">
+  return ( 
+  <div className="goals">
     <div className="goals--list-container">
       <ul className="goals--list">
         {goals.map(goal => (
@@ -79,4 +80,5 @@ export const Goals = function(props) {
       <CircularProgressbar value={percentage} text={`${percentage}%`} />
     </div>
   </div>
+  )
 }

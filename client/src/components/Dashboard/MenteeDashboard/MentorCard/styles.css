@@ -1,29 +1,54 @@
 .mentor-card {
-  color: #3e98c7;
+  color: #35222588;
   background-color: white;
   border-radius: 1rem;
   display: inline-flex;
-  padding: 1rem;
+  padding: 30px;
   flex-direction: column;
+  margin-left: 50px;
+  border-radius: 10%;
+  border: solid rgba(158, 144, 128, 0.424);
+  box-shadow: 3px 1px 3px -1px  rgba(175, 166, 154, 0.555);
+  transition: all 0.2s ease-in-out;
+}
+
+.mentor-card:hover {
+  box-shadow: 3px 1px 3px -1px rgba(175, 166, 154, 0.555);
+	transform: scale(1.02);
+  transition: all 0.6s ease-in-out;
+  background-color: rgba(246, 235, 237, 0.26);
+}
+
+.mentor-name, .mentor-speciality, .mentor-language, .mentor-location {
+  font-size: 18px;
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  font-weight: bold;
 }
 
 .mentor-image {
   display: flex;
   align-items: center;
+  flex-direction: column;
   font-size: 3rem;
-}
-
-.mentor-image > img {
-  margin-right: 2rem;
+  padding: 10px;
 }
 
 .mentor-card--mentor-image {
-  border-radius: 50%;
+  border-radius: 40%;
   height: 8rem;
+  width: 125px;
+  height: 130px;
+  border: solid rgba(158, 144, 128, 0.424);
+	border-width: 3px;
+  box-shadow: 3px 1px 8px 0  rgba(175, 166, 154, 0.555);
 }
 
 .mentor-card-row {
   display: flex;
+  flex-direction: column;
 }
 
 /*

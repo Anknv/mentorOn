@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  color: #3e98c7;
+  color: #4e443ea2;
   padding: 2rem 0;
 }
 
@@ -26,6 +26,5 @@ body {
 .dashboard-month-picker .selected {
   font-size: 3rem;
   font-weight: bold;
-  border-bottom: solid 4px;
 }
 

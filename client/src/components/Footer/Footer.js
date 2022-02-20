@@ -50,13 +50,13 @@ const Footer = () => {
                         <Link className='social-logo' to='/'> MentorOn</Link>
                         <div className='website-rights'> MentorOn © {new Date().getFullYear} This Lighthouse Labs Final project is made by Anna Kon, Naga Abirami Manimaran and Zeynep Kaya.</div>
                         <div className='social-icons'>
-                            <Link className='social-icon-link' to='/' target='_blank' aria-label='Instagram'>
+                            <Link className='social-icon-link' to={{ pathname: "https://www.instagram.com/" }} target='_blank' aria-label='Instagram'>
                                 <FaInstagram/>
                             </Link>
-                            <Link className='social-icon-link' to='/' target='_blank' aria-label='Youtube'>
+                            <Link className='social-icon-link' to={{ pathname: "https://www.youtube.com/" }} target='_blank' aria-label='Youtube'>
                                 <FaYoutube/>
                             </Link>
-                            <Link className='social-icon-link' to='/' target='_blank' aria-label='Twitter'>
+                            <Link className='social-icon-link' to={{ pathname: "https://twitter.com/" }} target='_blank' aria-label='Twitter'>
                                 <FaTwitter/>
                             </Link>
                             <Link className='social-icon-link' to={{ pathname: "https://github.com/abiramitoronto/mentorOn" }} target='_blank' aria-label='Github'>
