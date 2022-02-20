@@ -32,6 +32,7 @@ const Navbar = (props) => {
             Find Mentors
           </Link>
           {links.map((link) => { return <Link onClick={link.onClick} className='nav-links' to={link.path}>{link.text}</Link> })}
+          {props.user ? <span>Welcome, {props.user.name} {props.user.mentor_id ? '(Mentor)' : '(Mentee)'}</span> : ''}
         </ul>
       </div>
     </nav>

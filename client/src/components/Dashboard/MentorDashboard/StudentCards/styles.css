@@ -6,6 +6,7 @@
   padding: 1rem;
   flex-direction: row;
   justify-content: space-around;
+  margin: 0 3rem;
 }
 
 .student-card .goals .goals--list-container {
