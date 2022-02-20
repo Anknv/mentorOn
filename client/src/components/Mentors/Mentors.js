@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import getSpots from "../../hooks/getSpots";
 import { BsChatDotsFill } from 'react-icons/bs';
 import { MdCall, MdTaskAlt } from 'react-icons/md';
-
-
+import Footer from "../Footer/Footer";
 
 export default function Mentors(props) {
 
@@ -61,11 +60,14 @@ export default function Mentors(props) {
   });
 
   return (
-    <section className="container-mentors">
-      {/* <video className="video-mentors" autoPlay loop muted src={Video2} type='video/mp4'></video> */}
-      <div className="tweets">
-        {mentorListings}
-      </div>
-    </section>
+    <>
+      <section className="container-mentors">
+        {/* <video className="video-mentors" autoPlay loop muted src={Video2} type='video/mp4'></video> */}
+        <div className="tweets">
+          {mentorListings}
+        </div>
+      </section>
+      <Footer />
+    </>
   )
 }
