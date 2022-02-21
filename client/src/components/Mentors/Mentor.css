@@ -177,7 +177,7 @@ nav {
 	border-width: 3px;
 	box-shadow: 2px 3px 3px 2px rgba(0, 0, 0, 0.192);
     transition: all 0.2s ease-in-out;
-	background-color: #dad5d2e0;
+	background-color: white;
 }
 
 .tweets {
@@ -266,7 +266,6 @@ nav {
 
 .container-mentors {
 	background-image: url(../../Icons/background.jpg);
-	background-color: #cccccc; 
 	height:3050px;
 	width: 100%;
 	background-position: center;
