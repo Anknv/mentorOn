@@ -19,9 +19,9 @@ export default function App(props) {
 
   const history = useHistory();
 
-  (function(d, m){
-    var kommunicateSettings = 
-        {"appId":"3dacb51e527667db394e5a717dc032b37","popupWidget":true,"automaticChatOpenOnNavigation":true};
+  (function (d, m) {
+    var kommunicateSettings =
+      { "appId": "3866cee3cfb0ba5975ff20d53893db8f6", "popupWidget": true, "automaticChatOpenOnNavigation": true };
     var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
     s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
     var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
@@ -30,7 +30,7 @@ export default function App(props) {
 
   let userExists; try {
     userExists = JSON.parse(localStorage.getItem('user'))
-  } catch(err){
+  } catch (err) {
     console.error(err);
   };
 
@@ -48,17 +48,17 @@ export default function App(props) {
   return (
     <div className="App">
       <BrowserRouter>
-       <Navbar logOut={logOut} user={user} />
-         <div className="page-content">
+        <Navbar logOut={logOut} user={user} />
+        <div className="page-content">
           {/* <Fragment> */}
-            <Switch>
-               <Route exact="true" path="/" component={Home} />
-               <Route path="/login" render={(props) => <Login {...props} user={user} setUser={setUser} />} />
-               <Route path="/mentors" render={props => <Mentors data={state} user={user}/>} />
-               <Route path="/dashboard" component={Dashboard} />
-               <Route path="/bookmentor" component={Bookmentor} />
-           </Switch>
-         {/* </Fragment> */}
+          <Switch>
+            <Route exact="true" path="/" component={Home} />
+            <Route path="/login" render={(props) => <Login {...props} user={user} setUser={setUser} />} />
+            <Route path="/mentors" render={props => <Mentors data={state} user={user} />} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/bookmentor" component={Bookmentor} />
+          </Switch>
+          {/* </Fragment> */}
         </div>
       </BrowserRouter>
     </div>
