@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import getSpots from "../../hooks/getSpots";
 import { BsChatDotsFill } from 'react-icons/bs';
 import { MdCall, MdTaskAlt } from 'react-icons/md';
+import { RiArrowDropDownLine } from 'react-icons/ri'
 import Footer from "../Footer/Footer";
 import useApplicationData from "../../hooks/useApplicationData";
 
@@ -12,7 +13,7 @@ export default function Mentors(props) {
     state
   } = useApplicationData();
   console.log("months", state);
-  console.log("mentorlistings",state.mentorlist.mentorList);
+  console.log("mentorlistings", state.mentorlist.mentorList);
 
   const mentorListings = state.mentorlist.mentorList && state.mentorlist.mentorList.map(user => {
     return <article className="mentor">
@@ -64,22 +65,25 @@ export default function Mentors(props) {
 
   return (
     <>
-
-
       <section className="container-mentors">
-
         <div className="tweets">
-        <p>Filter By</p>
-      <select name="Location" id="Location">
-               <option value="Toronto">Toronto</option>
-               <option value="Ottawa">Ottawa</option>
-               <option value="Montreal">Montreal</option>
-      </select>
-      <select name="Language" id="Language">
-               <option value="">Language</option>
-               <option value="English">English</option>
-               <option value="French">French</option>
-      </select>
+          <div className="filter">
+              <div className="filter-name">
+                <p>Filter By :</p>
+              </div>
+              <div className="filter-lang-loc">
+                <select className="Location" id="Location">
+                  <option value="Toronto">Toronto</option>
+                  <option value="Ottawa">Ottawa</option>
+                  <option value="Montreal">Montreal</option>
+                </select>
+                <select className="Language" id="Language">
+                  <option value="">Language</option>
+                  <option value="English">English</option>
+                  <option value="French">French</option>
+                </select>
+              </div>
+          </div>
           {mentorListings}
         </div>
       </section>
