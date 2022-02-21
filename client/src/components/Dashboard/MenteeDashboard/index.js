@@ -35,7 +35,7 @@ export const MenteeDashboard = function (props) {
         ))}
       </div>
       {selectedMonth ? 
-      <div>
+      <div className="dashboard-page">
         <div className="dashboard-top-row">
           <MentorCard monthId={selectedMonth.id} />
           <Calendar key={selectedMonth.id} month={monthNames.indexOf(selectedMonth.month)} year={selectedMonth.year} monthId={selectedMonth.id} />

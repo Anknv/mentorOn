@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: flex-start;
   justify-self: center;
-  padding-top: 40px;
+  padding:40px
 }
 
 .goals--progress-circle {
@@ -99,4 +99,11 @@ input[type=checkbox]:checked:after {
 
 .CircularProgressbar .CircularProgressbar-background {
   fill: #ffffff;
+}
+
+.goals--new-goal {
+  padding: 5px;
+  border-radius: 20px;
+  margin: 7px;
+  border: solid rgba(158, 144, 128, 0.424);
 }

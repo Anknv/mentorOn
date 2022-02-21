@@ -7,11 +7,17 @@ body {
 .dashboard-container {
   background-image: url(../../../Icons/background4.jpg);
 	background-color: #cccccc; 
-	height:840px;
+	height:910px;
 	width: 100%;
 	background-position: center;
 	background-repeat: no-repeat; 
 	background-size: cover; 
+}
+
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dashboard-top-row {

@@ -27,9 +27,11 @@ export const StudentCards = function(props) {
     {cards.map(card => <div className="student-card">
         <div className="student-image">
           <img className="student-card--student-image" src={card.image_url} />
-          <span className="student-name">{card.name}</span>
+          <span className="student-name">Mentee Name: {card.name}</span>
         </div>
+        <div className="student-card-row">
         <Goals monthId={props.monthId} userId={card.id} />
+        </div>
       </div>)}
   </div>
 }

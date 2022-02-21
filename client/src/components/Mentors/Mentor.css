@@ -198,6 +198,7 @@ nav {
 	transform: scale(1.02);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+	background-color: rgba(238, 232, 234, 0.876);;
 }
 
 .mentor--header {

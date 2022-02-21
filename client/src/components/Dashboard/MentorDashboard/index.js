@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Agenda } from "./Agenda";
 import { StudentCards } from "./StudentCards";
+import './styles.css'
 
 export function MentorDashboard(props) {
 
@@ -21,7 +22,7 @@ export function MentorDashboard(props) {
     })
   }
 
-  return <div>
+  return <div className="mentor-dashboard-container">
     <div className="dashboard-month-picker">
       {months.map(month => (
         <div onClick={() => setSelectedMonth(month)} className={`month ${selectedMonth.id === month.id ? 'selected' : ''}`}>
