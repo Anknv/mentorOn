@@ -35,6 +35,7 @@ function setMonth(event) {
 }
 
 function setYearVal(event) {
+  console.log("Onchange Year");
     setYear(event.target.value);
 }
 
@@ -62,7 +63,7 @@ function findmentors(){
           <div className="bookmonth">
             <p>Select Month :</p>
              <select name="months" id="months" onChange={setMonth}>
-             <option value=""></option>
+               <option value="">Month</option>
                <option value="March">March</option>
                <option value="April">April</option>
               </select>
@@ -71,9 +72,9 @@ function findmentors(){
            <div className="bookyear">
              <p>Select Year :</p>
              <select name="year" id="year" onChange={setYearVal}>
-               <option value=""></option>
+               <option value="">Year</option>
                <option value="2022">2022</option>
-               <option value="2023">2023</option>
+               <option value="2021">2021</option>
               </select>
            </div>
       </div>

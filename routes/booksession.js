@@ -24,6 +24,7 @@ module.exports = (db) => {
     console.log(query);
     db.query(query)
       .then(data => {
+        console.log("data",data);
         res.send("Session Insert Successful");
       })
       .catch(err => {

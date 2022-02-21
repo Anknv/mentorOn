@@ -5,11 +5,14 @@ import getSpots from "../../hooks/getSpots";
 import { BsChatDotsFill } from 'react-icons/bs';
 import { MdCall, MdTaskAlt } from 'react-icons/md';
 import Footer from "../Footer/Footer";
+import useApplicationData from "../../hooks/useApplicationData";
 
 export default function Mentors(props) {
-
-  const state = props.data;
+  const {
+    state
+  } = useApplicationData();
   console.log("months", state);
+  console.log("mentorlistings",state.mentorlist.mentorList);
 
   const mentorListings = state.mentorlist.mentorList && state.mentorlist.mentorList.map(user => {
     return <article className="mentor">
@@ -46,7 +49,7 @@ export default function Mentors(props) {
             <h3>$100/ month</h3> <br />
           </div>
         </div>
-        {props.user &&
+        {props.user && getSpots(user.user_id, state.vacantspots.available_spots) !== "Full" &&
           <Link className='book-links' to={{
             pathname: "bookmentor",
             state: user,
@@ -61,9 +64,22 @@ export default function Mentors(props) {
 
   return (
     <>
+
+
       <section className="container-mentors">
-        {/* <video className="video-mentors" autoPlay loop muted src={Video2} type='video/mp4'></video> */}
+
         <div className="tweets">
+        <p>Filter By</p>
+      <select name="Location" id="Location">
+               <option value="Toronto">Toronto</option>
+               <option value="Ottawa">Ottawa</option>
+               <option value="Montreal">Montreal</option>
+      </select>
+      <select name="Language" id="Language">
+               <option value="">Language</option>
+               <option value="English">English</option>
+               <option value="French">French</option>
+      </select>
           {mentorListings}
         </div>
       </section>

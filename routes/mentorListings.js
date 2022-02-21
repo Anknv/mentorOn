@@ -25,6 +25,7 @@ module.exports = (db) => {
     db.query(query)
       .then(data => {
         const mentorList = data.rows;
+        console.log("mentorListings",data.rows)
         res.json({ mentorList });
       })
       .catch(err => {
