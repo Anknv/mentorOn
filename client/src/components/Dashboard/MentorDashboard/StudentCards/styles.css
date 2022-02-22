@@ -51,7 +51,6 @@
 }
 
 .student-image > img {
-  margin-right: 2rem;
   border: solid rgba(158, 144, 128, 0.424);
 	border-width: 3px;
   box-shadow: 3px 1px 8px 0  rgba(175, 166, 154, 0.555);
@@ -67,3 +66,19 @@
   padding-right: 70px;
 }
 
+.student-contact {
+  color:rgb(59, 8, 15);
+  text-decoration: none;
+  padding:0.5rem 1rem;
+  margin-top: 1rem;
+  border: 2px solid rgb(61, 16, 22);
+  border-radius: 30px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.student-contact:hover {
+	background-color: #a5677163;
+    border-radius: 30px;
+    transition: all 0.2s ease-out;
+}

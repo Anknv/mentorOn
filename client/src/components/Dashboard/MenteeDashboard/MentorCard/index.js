@@ -42,6 +42,7 @@ export const MentorCard = function (props) {
           <MdOutlineLanguage />
           Language: {card.language}
         </div>
+          <a className="mentor-contact" href={`mailto:${card.email}`} target='_blank'>Contact</a>
       </div>
     </div>
   )

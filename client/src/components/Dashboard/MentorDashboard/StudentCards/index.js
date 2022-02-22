@@ -28,6 +28,7 @@ export const StudentCards = function(props) {
         <div className="student-image">
           <img className="student-card--student-image" src={card.image_url} />
           <span className="student-name">Mentee Name: {card.name}</span>
+          <a className="student-contact" href={`mailto:${card.email}`} target='_blank'>Contact</a>
         </div>
         <div className="student-card-row">
         <Goals monthId={props.monthId} userId={card.id} />

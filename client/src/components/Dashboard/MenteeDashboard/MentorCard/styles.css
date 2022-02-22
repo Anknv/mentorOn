@@ -51,3 +51,19 @@
   flex-direction: column;
 }
 
+.mentor-contact {
+  color:rgb(59, 8, 15);
+  text-decoration: none;
+  padding:0.5rem 1rem ;
+  margin-top: 1rem;
+  border: 2px solid rgb(61, 16, 22);
+  border-radius: 30px;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+.mentor-contact:hover {
+	background-color: #a5677163;
+    border-radius: 30px;
+    transition: all 0.2s ease-out;
+}
