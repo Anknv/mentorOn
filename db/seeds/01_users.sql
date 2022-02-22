@@ -14,5 +14,5 @@ INSERT INTO users (name,email,password, image_url) VALUES ('Zara','test5@gmail.c
 INSERT INTO users (name,email,password, image_url) VALUES ('Mike','test6@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://minimaltoolkit.com/images/randomdata/male/88.jpg');
 INSERT INTO users (name,email,password, image_url) VALUES ('Louisa','test7@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://minimaltoolkit.com/images/randomdata/female/20.jpg');
 INSERT INTO users (name,email,password, image_url) VALUES ('Meyer','test8@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://minimaltoolkit.com/images/randomdata/male/80.jpg');
-INSERT INTO users (name,email,password, image_url) VALUES ('Sue','test9gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://minimaltoolkit.com/images/randomdata/female/62.jpg');
+INSERT INTO users (name,email,password, image_url) VALUES ('Sue','test9@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://minimaltoolkit.com/images/randomdata/female/62.jpg');
 INSERT INTO users (name,email,password, image_url) VALUES ('Luna','test10@gmail.com','$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://minimaltoolkit.com/images/randomdata/female/39.jpg');
