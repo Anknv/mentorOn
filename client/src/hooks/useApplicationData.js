@@ -19,7 +19,13 @@ useEffect(() => {
     axios.get('/api/getmonths')
   ]).then((all) => {
     const [first, second, third, fourth] = all;
-    setState(prev => ({ ...prev, users : first.data, mentorlist : second.data, vacantspots : third.data, months_tbl: fourth.data.months}));
+    setState(prev => ({
+      ...prev,
+      users : first.data,
+      mentorlist : second.data,
+      vacantspots : third.data,
+      months_tbl: fourth.data.months
+    }));
   }).catch (err => console.log(err));
 },[]);
 
