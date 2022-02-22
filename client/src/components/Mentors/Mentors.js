@@ -67,23 +67,6 @@ export default function Mentors(props) {
     <>
       <section className="container-mentors">
         <div className="tweets">
-          <div className="filter">
-              <div className="filter-name">
-                <p>Filter By :</p>
-              </div>
-              <div className="filter-lang-loc">
-                <select className="Location" id="Location">
-                  <option value="Toronto">Toronto</option>
-                  <option value="Ottawa">Ottawa</option>
-                  <option value="Montreal">Montreal</option>
-                </select>
-                <select className="Language" id="Language">
-                  <option value="">Language</option>
-                  <option value="English">English</option>
-                  <option value="French">French</option>
-                </select>
-              </div>
-          </div>
           {mentorListings}
         </div>
       </section>
