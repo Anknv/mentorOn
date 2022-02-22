@@ -7,7 +7,7 @@ body {
 .dashboard-container {
   background-image: url(../../../Icons/background4.jpg);
 	background-color: #cccccc; 
-	height:910px;
+	height:fit-content;
 	width: 100%;
 	background-position: center;
 	background-repeat: no-repeat; 
