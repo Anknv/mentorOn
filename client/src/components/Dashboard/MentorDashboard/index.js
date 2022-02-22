@@ -23,6 +23,7 @@ export function MentorDashboard(props) {
   }
 
   return <div className="mentor-dashboard-container">
+    {!months.length ? <h3 className="mentor-dashboard--no-sessions">You have no sessions.</h3> : ''}
     <div className="dashboard-month-picker">
       {months.map(month => (
         <div onClick={() => setSelectedMonth(month)} className={`month ${selectedMonth.id === month.id ? 'selected' : ''}`}>
@@ -30,8 +31,8 @@ export function MentorDashboard(props) {
         </div>
       ))}
     </div>
-    <Agenda monthId={selectedMonth.id} />
     {selectedMonth ? <div>
+      <Agenda monthId={selectedMonth.id} />
       <StudentCards monthId={selectedMonth.id} />
     </div> : ''}
   </div>;

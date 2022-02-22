@@ -1,9 +1,15 @@
 .mentor-dashboard-container {
     background-image: url(../../../Icons/background4.jpg);
-	background-color: #cccccc; 
-	height: fit-content;
+	background-color: #cccccc;
+	height: 100vh;
 	width: 100%;
 	background-position: center;
-	background-repeat: no-repeat; 
-	background-size: cover; 
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.mentor-dashboard--no-sessions {
+  text-align: center;
+  padding-top: 4rem;
+  font-weight: bold;
 }
