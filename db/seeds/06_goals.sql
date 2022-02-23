@@ -6,4 +6,3 @@ INSERT INTO goals (session_id,description,is_done) VALUES (3,'Work on a group pr
 INSERT INTO goals (session_id,description,is_done) VALUES (3,'Enroll in LHL bootcamp',False);
 INSERT INTO goals (session_id,description,is_done) VALUES (3,'Apply for junior positions',True);
 INSERT INTO goals (session_id,description,is_done) VALUES (4,'Attend a virtual meetup',True);
-INSERT INTO goals (session_id,description,is_done) VALUES (5,'Create an online portfolio',False);
