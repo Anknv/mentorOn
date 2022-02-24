@@ -34,3 +34,47 @@ A full stack web application built with React, Node.js, Express, and PostgreSQL 
 
 ## ERD 
 ![ERD](docs/erd.png)
+
+
+## MentorOn Landing Page
+![Landing Page](docs/1.png)
+
+
+## MentorOn Services
+![Services](docs/2.png)
+
+
+## Login Page
+![Login Page](docs/3.png)
+
+
+## Footer Section
+![Footer](docs/4.png)
+
+
+## Find Mentors Page
+![mentors page](docs/9.png)
+
+
+## Mentee Dashboard pt.1
+![Mentee Dashboard](docs/5.png)
+
+
+## Mentee Dashboard pt.2
+![Mentee Dashboard](docs/5.1.png)
+
+
+## Mentor Dashboard pt.1
+![Mentor Dashboard](docs/6.png)
+
+
+## Mentor Dashboard pt.2
+![Mentor Dashboard](docs/6.1.png)
+
+
+## Payment Page
+![Payment Page](docs/7.png)
+
+
+## MentorOn Chatbot 
+![chatbot](docs/8.png)
