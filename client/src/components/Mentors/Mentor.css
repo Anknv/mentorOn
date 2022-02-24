@@ -170,7 +170,7 @@ nav {
 }
 
 .mentor {
-	margin: 100px 250px;
+	margin: 150px 250px;
 	padding: 10px;
 	border: 4px solid rgba(158, 144, 128, 0.424);
 	border-radius: 50px;
@@ -263,6 +263,7 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	word-wrap: break-word;
+	align-items: center;
 }
 
 .container-mentors {
